@@ -1,22 +1,12 @@
 version: '2.3'
 
 services:
-  cache:
+  redis:
     image: redis
     container_name: cache
     ports:
-      - 6379
+      - 6379:6379
     networks:
       default:
         aliases:
-         - cache.hein.internal
-
-  queue:
-    image: redis
-    container_name: queue
-    ports:
-      - 6379
-    networks:
-      default:
-        aliases:
-         - queue.hein.internal
+         - redis.hein.internal
